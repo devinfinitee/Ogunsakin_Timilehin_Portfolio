@@ -41,17 +41,24 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   cursor: none;
-}
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
-#root {
-  position: relative;
+    gap: 0.45rem 0.65rem;
 }
-
 .site-content {
   position: relative;
+  .nav-links li {
+    min-width: 0;
+  }
+
   z-index: 2;
 }
 
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0.2rem 0;
 .site-particles-layer {
   position: fixed;
   inset: 0;
@@ -83,25 +90,16 @@ body::after {
   position: fixed;
   width: 12px;
   height: 12px;
-  background: var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
-  mix-blend-mode: difference;
-}
-
 .cursor-ring {
   position: fixed;
   width: 40px;
   height: 40px;
-  border: 1px solid var(--gold);
+    width: calc(100% - 0.55rem);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: all 0.18s ease;
+    gap: 0.35rem 0.45rem;
   opacity: 0.5;
 }
 
@@ -2038,6 +2036,13 @@ button:hover svg {
     font-size: clamp(2.35rem, 11vw, 3.8rem);
   }
 
+  .hero-title {
+    font-size: clamp(0.74rem, 2.85vw, 0.92rem);
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    white-space: normal;
+  }
+
   .hero-right {
     display: flex;
     justify-content: center;
@@ -2172,6 +2177,17 @@ button:hover svg {
   body::after,
   body::before {
     opacity: 0.2;
+  }
+
+  .typewriter,
+  .typewriter-loop {
+    white-space: normal;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .typewriter::after,
+  .typewriter-loop::after {
+    display: none;
   }
 }
 
