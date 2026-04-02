@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timilehin Seyi Adeleke Ogunsakin — Innovator. Builder. Visionary.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --off-black: #111111;
+    --surface: #161616;
+    --border: #222222;
+    --dim: #333333;
+    --muted: #666666;
+    --text: #c8c8c8;
+    --white: #f0ede8;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: rgba(201,168,76,0.12);
+    --teal: #2fbfb3;
+    --teal-dim: rgba(47,191,179,0.10);
+    --red: #d94f3d;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 40px; height: 40px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all 0.18s ease;
+    opacity: 0.5;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9990;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s;
+    backdrop-filter: blur(0px);
+  }
+  nav.scrolled {
+    border-color: var(--border);
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(16px);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--white);
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* GRID LINES */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+  }
+
+  .hero-left { position: relative; z-index: 2; padding: 8rem 0; }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 30px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.35s forwards;
+  }
+  .hero-name .accent { color: var(--gold); font-style: italic; }
+  .hero-name .bold { font-weight: 700; display: block; }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+
+  .hero-bio {
+    max-width: 460px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.65s forwards;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.85rem 2.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: none;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+  .btn-primary:hover::after { transform: translateX(0); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--dim);
+    cursor: none;
+    transition: all 0.25s;
+  }
+  .btn-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1.2s 1s forwards;
+  }
+
+  .hero-visual {
+    width: 340px; height: 420px;
+    position: relative;
+  }
+  .hero-avatar-bg {
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+  }
+  .hero-avatar-inner {
+    position: absolute;
+    inset: 1.5rem;
+    border: 1px solid var(--gold-dim);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 83%, 83% 100%, 0 100%);
+    overflow: hidden;
+  }
+  .initials-display {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -65%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.15;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  .hero-card-info {
+    position: relative;
+    z-index: 2;
+  }
+  .hero-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+  .hero-card-role {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .hero-floating-badge {
+    position: absolute;
+    top: -20px; right: -20px;
+    background: var(--teal);
+    color: var(--black);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    animation: float 3s ease-in-out infinite;
+  }
+  .hero-stat-strip {
+    position: absolute;
+    bottom: -15px; left: -20px;
+    background: var(--off-black);
+    border: 1px solid var(--border);
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: 700;
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem; left: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeIn 1s 1.5s forwards;
+  }
+  .scroll-line {
+    width: 40px; height: 1px;
+    background: var(--dim);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gold);
+    animation: scanline 2s ease-in-out infinite;
+  }
+
+  /* SECTIONS COMMON */
+  section { padding: 7rem 4rem; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .section-num {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 0.4rem;
+  }
+
+  /* ABOUT */
+  .about { background: var(--off-black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--muted);
+    line-height: 2;
+    margin-bottom: 1.5rem;
+    font-size: 13px;
+  }
+  .about-text p .highlight { color: var(--white); }
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+  .pillar {
+    background: var(--off-black);
+    padding: 1.5rem;
+    transition: background 0.3s;
+  }
+  .pillar:hover { background: var(--surface); }
+  .pillar-icon { font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .pillar-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .pillar-desc { font-size: 11px; color: var(--muted); line-height: 1.6; }
+
+  .values-list { display: flex; flex-direction: column; gap: 0; }
+  .value-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .value-item::before {
+    content: '';
+    position: absolute;
+    left: -100%; top: 0;
+    width: 100%; height: 100%;
+    background: var(--gold-dim);
+    transition: left 0.4s;
+  }
+  .value-item:hover::before { left: 0; }
+  .value-num {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    min-width: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .value-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+  .value-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: auto;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+    max-width: 160px;
+  }
+
+  /* TECH */
+  .tech { position: relative; overflow: hidden; }
+  .tech-bg-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20vw;
+    font-weight: 700;
+    color: rgba(255,255,255,0.012);
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    position: relative;
+    z-index: 2;
+  }
+  .tech-card {
+    background: var(--black);
+    padding: 2.5rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .tech-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s;
+  }
+  .tech-card:hover { background: var(--surface); }
+  .tech-card:hover::after { width: 100%; }
+  .tech-card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .tech-card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+  .tech-card-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+    padding: 0.25rem 0.6rem;
+  }
+  .tag.teal { color: var(--teal); border-color: var(--teal-dim); }
+
+  /* HEALTH */
+  .health {
+    background: var(--off-black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .health-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+  .health-manifesto {
+    position: sticky;
+    top: 8rem;
+  }
+  .health-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    border-left: 2px solid var(--teal);
+    padding-left: 1.5rem;
+  }
+  .health-quote-attr {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .health-principles { display: flex; flex-direction: column; gap: 1.5rem; }
+  .principle {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    background: var(--black);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .principle:hover { border-color: var(--teal); }
+  .principle-num {
+    font-size: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--teal);
+    opacity: 0.3;
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    font-weight: 700;
+  }
+  .principle-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .principle-text { font-size: 12px; color: var(--muted); line-height: 1.8; }
+
+  /* INNOVATIONS */
+  .innovations { position: relative; }
+  .innovations-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+  .innovation-items { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+  .innovation-item {
+    background: var(--black);
+    padding: 2.5rem 3rem;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    transition: all 0.3s;
+    cursor: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .innovation-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s;
+  }
+  .innovation-item:hover { background: var(--surface); padding-left: 3.5rem; }
+  .innovation-item:hover::before { height: 100%; }
+  .inno-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--dim);
+  }
+  .inno-content {}
+  .inno-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+  .inno-desc { font-size: 12px; color: var(--muted); }
+  .inno-status {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    white-space: nowrap;
+  }
+  .status-active { color: var(--teal); border: 1px solid var(--teal-dim); background: rgba(47,191,179,0.05); }
+  .status-building { color: var(--gold); border: 1px solid var(--gold-dim); background: var(--gold-dim); }
+  .status-vision { color: var(--muted); border: 1px solid var(--dim); }
+
+  /* CAREER TIMELINE */
+  .career { background: var(--off-black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .timeline { position: relative; padding-left: 3rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--dim), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 3.5rem 3rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 6px;
+    width: 10px; height: 10px;
+    border: 1px solid var(--gold);
+    background: var(--black);
+    transform: rotate(45deg);
+  }
+  .timeline-date {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .timeline-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+  .timeline-org { font-size: 12px; color: var(--teal); margin-bottom: 0.75rem; }
+  .timeline-desc { font-size: 12px; color: var(--muted); line-height: 1.8; max-width: 560px; }
+
+  /* PERSONAL */
+  .personal { position: relative; overflow: hidden; }
+  .personal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); margin-top: 1rem; }
+  .personal-card {
+    background: var(--black);
+    padding: 2rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .personal-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    z-index: 1;
+  }
+  .personal-card-bg {
+    position: absolute;
+    inset: 0;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.08;
+    transition: opacity 0.3s, transform 0.4s;
+  }
+  .personal-card:hover .personal-card-bg { opacity: 0.15; transform: scale(1.1); }
+  .personal-card-content { position: relative; z-index: 2; }
+  .personal-card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+  .personal-card-text { font-size: 11px; color: var(--muted); line-height: 1.6; }
+  .personal-card:hover { background: var(--surface); }
+
+  /* DOMAIN */
+  .domain { background: var(--off-black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .domain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .domain-card {
+    border: 1px solid var(--border);
+    padding: 2rem;
+    background: var(--black);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .domain-card.recommended {
+    border-color: var(--gold);
+    background: var(--gold-dim);
+  }
+  .domain-card.recommended::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -1px; right: 1.5rem;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    padding: 0.2rem 0.6rem;
+  }
+  .domain-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .domain-card.recommended .domain-name { color: var(--gold-light); }
+  .domain-why { font-size: 11px; color: var(--muted); line-height: 1.7; }
+  .domain-ext { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+
+  /* CONTACT */
+  .contact { text-align: center; position: relative; overflow: hidden; min-height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .contact-glow {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 60%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .contact-sub {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .contact-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-heading em { font-style: italic; color: var(--gold); }
+  .contact-desc { font-size: 13px; color: var(--muted); max-width: 400px; margin: 0 auto 3rem; position: relative; z-index: 1; line-height: 1.9; }
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-link {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--dim);
+    transition: all 0.3s;
+  }
+  .contact-link:hover { color: var(--white); border-color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+  }
+  footer span { text-transform: uppercase; }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+
+  /* TICKER */
+  .ticker {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.6rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    gap: 4rem;
+    animation: ticker 25s linear infinite;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .ticker-item::before { content: '★ '; }
+
+  /* SKILL BARS */
+  .skills-section { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 2rem; }
+  .skill-bar { }
+  .skill-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .skill-label span:last-child { color: var(--gold); }
+  .skill-track { height: 2px; background: var(--dim); }
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--gold), var(--teal));
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes scanline {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2rem; }
+    .hero { grid-template-columns: 1fr; padding: 2rem; padding-top: 8rem; }
+    .hero-right { display: none; }
+    .about-grid, .health-layout, .innovations-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .tech-grid { grid-template-columns: 1fr; }
+    .personal-grid { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .about-pillars { grid-template-columns: 1fr; }
+    .skills-section { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">T<span>.</span>Ogunsakin</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#tech">Technology</a></li>
+    <li><a href="#health">Health</a></li>
+    <li><a href="#innovations">Innovations</a></li>
+    <li><a href="#career">Career</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="grid-overlay"></div>
+  <div class="hero-left">
+    <div class="hero-tag">Nigerian Technologist & Innovator</div>
+    <h1 class="hero-name">
+      Timilehin
+      <span class="accent">Seyi</span>
+      <span class="bold">Ogunsakin</span>
+    </h1>
+    <p class="hero-title">Tech Innovator · Health Advocate · Career Builder</p>
+    <p class="hero-bio">
+      An African mind shaping global futures — at the intersection of technology, health systems, and human potential. Building solutions that matter, stories that resonate, and a legacy that endures.
+    </p>
+    <div class="hero-ctas">
+      <a href="#innovations" class="btn-primary">Explore My Work</a>
+      <a href="#contact" class="btn-ghost">Let's Connect</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-avatar-bg"></div>
+      <div class="hero-avatar-inner">
+        <div class="initials-display">TSA</div>
+        <div class="hero-card-info">
+          <div class="hero-card-name">Timilehin S. A. Ogunsakin</div>
+          <div class="hero-card-role">Innovator · Ibadan, Nigeria</div>
+        </div>
+      </div>
+      <div class="hero-floating-badge">Open to Collaborate</div>
+      <div class="hero-stat-strip">
+        <div class="stat-item">
+          <span class="stat-num">5+</span>
+          <span class="stat-lbl">Years</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">12+</span>
+          <span class="stat-lbl">Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">3</span>
+          <span class="stat-lbl">Domains</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Technology & Innovation</span>
+    <span class="ticker-item">Health Systems</span>
+    <span class="ticker-item">Career Development</span>
+    <span class="ticker-item">African Tech Ecosystem</span>
+    <span class="ticker-item">Future of Work</span>
+    <span class="ticker-item">Digital Health</span>
+    <span class="ticker-item">Technology & Innovation</span>
+    <span class="ticker-item">Health Systems</span>
+    <span class="ticker-item">Career Development</span>
+    <span class="ticker-item">African Tech Ecosystem</span>
+    <span class="ticker-item">Future of Work</span>
+    <span class="ticker-item">Digital Health</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">The Person<br><em style="font-style:italic;color:var(--gold);">Behind the Work</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        <span class="highlight">My name is Timilehin Seyi Adeleke Ogunsakin</span>, and I am a product of the Nigerian spirit — resilient, resourceful, and relentlessly forward-looking. Born and based in <span class="highlight">Ibadan, Oyo State</span>, I sit at the crossroads of technology, health, and human capital development.
+      </p>
+      <p>
+        My journey is not a straight line. It is a mosaic of <span class="highlight">bold experiments, hard-won lessons</span>, and a passionate belief that the African continent is not behind — it is simply on its own trajectory. I work every day to be part of that trajectory's acceleration.
+      </p>
+      <p>
+        I believe deeply in <span class="highlight">building things that outlast their builders</span> — solutions that don't just solve today's problems, but design better tomorrows. Whether in a boardroom, a clinic, or a codebase, I carry the same conviction: precision matters, people matter more.
+      </p>
+
+      <div class="skills-section" id="skillsSection">
+        <div class="skill-bar">
+          <div class="skill-label"><span>Technology</span><span>92%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="92%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Health Innovation</span><span>85%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="85%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Product Strategy</span><span>88%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="88%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Leadership</span><span>90%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="90%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Research & Analysis</span><span>82%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="82%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-label"><span>Communication</span><span>95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95%"></div></div>
+        </div>
+      </div>
+
+      <div class="about-pillars" style="margin-top:2rem">
+        <div class="pillar">
+          <div class="pillar-icon">🔬</div>
+          <div class="pillar-name">Research-Driven</div>
+          <div class="pillar-desc">Every decision is grounded in evidence, data, and deep contextual understanding.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌍</div>
+          <div class="pillar-name">Pan-African Vision</div>
+          <div class="pillar-desc">Building for Africa, but thinking for the world. Local problems, global solutions.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">⚙️</div>
+          <div class="pillar-name">Systems Thinker</div>
+          <div class="pillar-desc">I don't fix symptoms. I redesign the systems that create them.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🤝</div>
+          <div class="pillar-name">Community First</div>
+          <div class="pillar-desc">Success shared is success multiplied. I invest in people as fiercely as ideas.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="values-list">
+      <div class="value-item">
+        <span class="value-num">01</span>
+        <span class="value-text">Radical Authenticity</span>
+        <span class="value-sub">Being fully myself, everywhere</span>
+      </div>
+      <div class="value-item">
+        <span class="value-num">02</span>
+        <span class="value-text">Purposeful Innovation</span>
+        <span class="value-sub">Tech that serves humanity</span>
+      </div>
+      <div class="value-item">
+        <span class="value-num">03</span>
+        <span class="value-text">Health as Wealth</span>
+        <span class="value-sub">Whole-person wellbeing</span>
+      </div>
+      <div class="value-item">
+        <span class="value-num">04</span>
+        <span class="value-text">Continuous Growth</span>
+        <span class="value-sub">Learning never stops</span>
+      </div>
+      <div class="value-item">
+        <span class="value-num">05</span>
+        <span class="value-text">Integrity Without Compromise</span>
+        <span class="value-sub">Character is non-negotiable</span>
+      </div>
+      <div class="value-item">
+        <span class="value-num">06</span>
+        <span class="value-text">Legacy Over Virality</span>
+        <span class="value-sub">Built to last, not to trend</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section class="tech" id="tech">
+  <div class="tech-bg-text">CODE</div>
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Technology<br><em style="font-style:italic;color:var(--teal)">Stack & Expertise</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <span class="tech-card-icon">💻</span>
+      <div class="tech-card-title">Software Development</div>
+      <div class="tech-card-desc">From concept to deployment, I architect and build robust digital products. My approach blends engineering rigour with user-centred design for lasting impact.</div>
+      <div class="tech-tags">
+        <span class="tag">Python</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="tech-card">
+      <span class="tech-card-icon">🤖</span>
+      <div class="tech-card-title">AI & Machine Learning</div>
+      <div class="tech-card-desc">Leveraging artificial intelligence to solve real African challenges — from crop disease detection to medical diagnostics and natural language tools for indigenous languages.</div>
+      <div class="tech-tags">
+        <span class="tag">ML Models</span>
+        <span class="tag">NLP</span>
+        <span class="tag teal">Computer Vision</span>
+        <span class="tag teal">LLMs</span>
+      </div>
+    </div>
+    <div class="tech-card">
+      <span class="tech-card-icon">🏥</span>
+      <div class="tech-card-title">Digital Health Tech</div>
+      <div class="tech-card-desc">Bridging the gap between healthcare delivery and technology in resource-constrained settings. Building tools that work on low-bandwidth, offline-first environments.</div>
+      <div class="tech-tags">
+        <span class="tag">EHR Systems</span>
+        <span class="tag">Telemedicine</span>
+        <span class="tag teal">mHealth</span>
+        <span class="tag teal">FHIR</span>
+      </div>
+    </div>
+    <div class="tech-card">
+      <span class="tech-card-icon">📊</span>
+      <div class="tech-card-title">Data & Analytics</div>
+      <div class="tech-card-desc">Turning raw data into strategic intelligence. I design dashboards, pipelines, and reporting frameworks that empower organisations to make smarter decisions faster.</div>
+      <div class="tech-tags">
+        <span class="tag">Data Viz</span>
+        <span class="tag">BI Tools</span>
+        <span class="tag teal">ETL Pipelines</span>
+        <span class="tag">Research Methods</span>
+      </div>
+    </div>
+    <div class="tech-card">
+      <span class="tech-card-icon">☁️</span>
+      <div class="tech-card-title">Cloud & Infrastructure</div>
+      <div class="tech-card-desc">Designing scalable, resilient infrastructure tailored for African internet realities — optimised for cost, performance, and reliability across network conditions.</div>
+      <div class="tech-tags">
+        <span class="tag">AWS</span>
+        <span class="tag">GCP</span>
+        <span class="tag teal">Docker</span>
+        <span class="tag">DevOps</span>
+      </div>
+    </div>
+    <div class="tech-card">
+      <span class="tech-card-icon">📱</span>
+      <div class="tech-card-title">Product Management</div>
+      <div class="tech-card-desc">Owning the full product lifecycle — discovery, roadmapping, sprint planning, and GTM strategy. I speak fluently to engineers, designers, clinicians, and executives.</div>
+      <div class="tech-tags">
+        <span class="tag">Agile / Scrum</span>
+        <span class="tag">User Research</span>
+        <span class="tag teal">GTM Strategy</span>
+        <span class="tag">OKRs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH -->
+<section class="health" id="health">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Health<br><em style="font-style:italic;color:var(--teal)">Philosophy & Advocacy</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="health-layout">
+    <div class="health-manifesto">
+      <div class="health-quote">
+        "A sick person cannot build a great nation. Health is not a privilege — it is the foundation of every other ambition."
+      </div>
+      <div class="health-quote-attr">— Timilehin Seyi Ogunsakin</div>
+      <br>
+      <p style="font-size:12px;color:var(--muted);line-height:1.9;">
+        My work in health is deeply personal. Having witnessed the gaps in Nigeria's healthcare system — the overcrowded clinics, the unaffordable drugs, the preventable deaths — I made a commitment to use every tool available, especially technology, to change this story.
+      </p>
+      <br>
+      <p style="font-size:12px;color:var(--muted);line-height:1.9;">
+        But I also believe health begins at home, in habits, in mindset. Personally, I practise what I preach: intentional movement, nutrition literacy, mental wellness, and regular health monitoring. My personal health journey informs my professional advocacy.
+      </p>
+    </div>
+    <div class="health-principles">
+      <div class="principle">
+        <div class="principle-num">01</div>
+        <div class="principle-title">Preventive Over Curative</div>
+        <div class="principle-text">The most powerful healthcare intervention is the one that happens before the crisis. I advocate for and build systems centred on prevention — community health education, early screening tools, and lifestyle medicine platforms.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">02</div>
+        <div class="principle-title">Access for All, Not Just the Privileged</div>
+        <div class="principle-text">Quality healthcare must not be a function of your postal code or income bracket. I design digital health solutions specifically for the underserved — offline-capable, multi-language, and free at point of use where possible.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">03</div>
+        <div class="principle-title">Mental Health is Real Health</div>
+        <div class="principle-text">In a society that often stigmatises mental health struggles, I choose to normalise the conversation. I openly discuss burnout, anxiety, and the mental load of ambition — and I champion resources that make support accessible.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">04</div>
+        <div class="principle-title">Data-Driven Public Health</div>
+        <div class="principle-text">Africa's health challenges need African data. I work to build and leverage local health datasets, epidemiological research tools, and surveillance systems that tell our own stories accurately.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-num">05</div>
+        <div class="principle-title">Personal Wellness as Professional Fuel</div>
+        <div class="principle-text">I schedule rest as deliberately as meetings. Sleep, movement, nutrition, and spiritual grounding are not luxuries — they are the operating system beneath everything I build and everything I am.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INNOVATIONS -->
+<section class="innovations" id="innovations">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Innovations<br><em style="font-style:italic;color:var(--gold)">& Projects</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="innovation-items">
+    <div class="innovation-item">
+      <div class="inno-num">01</div>
+      <div class="inno-content">
+        <div class="inno-title">HealthBridge Nigeria</div>
+        <div class="inno-desc">An offline-first telemedicine platform connecting rural communities to qualified healthcare providers via USSD and lightweight mobile apps. Serving 3 states and growing.</div>
+      </div>
+      <div class="inno-status status-active">Live</div>
+    </div>
+    <div class="innovation-item">
+      <div class="inno-num">02</div>
+      <div class="inno-content">
+        <div class="inno-title">CareerMap Africa</div>
+        <div class="inno-desc">An AI-powered career intelligence platform designed for African professionals — providing personalised career pathways, skills gap analysis, and curated opportunities tailored to local market realities.</div>
+      </div>
+      <div class="inno-status status-building">Building</div>
+    </div>
+    <div class="innovation-item">
+      <div class="inno-num">03</div>
+      <div class="inno-content">
+        <div class="inno-title">MediScan AI</div>
+        <div class="inno-desc">A computer vision diagnostic aid tool that helps frontline health workers in low-resource settings interpret medical imagery with greater accuracy, reducing misdiagnosis rates.</div>
+      </div>
+      <div class="inno-status status-building">Building</div>
+    </div>
+    <div class="innovation-item">
+      <div class="inno-num">04</div>
+      <div class="inno-content">
+        <div class="inno-title">OgunsakinLab — Open Innovation Space</div>
+        <div class="inno-desc">A physical and virtual lab in Ibadan where tech-curious youth learn, build, and launch. Blending mentorship, maker culture, and real project exposure for the next generation of builders.</div>
+      </div>
+      <div class="inno-status status-vision">Vision</div>
+    </div>
+    <div class="innovation-item">
+      <div class="inno-num">05</div>
+      <div class="inno-content">
+        <div class="inno-title">YorùbáNLP Corpus</div>
+        <div class="inno-desc">Developing an open-source natural language processing dataset and model for Yorùbá language — ensuring Africa's richest oral traditions are preserved and usable in AI applications.</div>
+      </div>
+      <div class="inno-status status-active">Active Research</div>
+    </div>
+    <div class="innovation-item">
+      <div class="inno-num">06</div>
+      <div class="inno-content">
+        <div class="inno-title">The Seyi Dispatch — Weekly Newsletter</div>
+        <div class="inno-desc">A curated weekly newsletter on tech innovation, health policy, and career insights for ambitious African professionals. 2,000+ subscribers and growing every week.</div>
+      </div>
+      <div class="inno-status status-active">Live</div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section class="career" id="career">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Career<br><em style="font-style:italic;color:var(--teal)">Journey & Milestones</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2024 — Present</div>
+      <div class="timeline-role">Lead Technology & Health Innovation Strategist</div>
+      <div class="timeline-org">Independent / Consulting</div>
+      <div class="timeline-desc">Advising health organisations, startups, and government agencies on digital transformation strategy. Designing technology roadmaps, conducting feasibility studies, and building go-to-market strategies for health-tech products across West Africa.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2022 — 2024</div>
+      <div class="timeline-role">Senior Product & Innovation Lead</div>
+      <div class="timeline-org">Digital Health Initiative — Ibadan, Nigeria</div>
+      <div class="timeline-desc">Led cross-functional teams in building and deploying digital health products. Oversaw full product lifecycle from research to release. Reduced patient onboarding time by 60% through UX redesign. Implemented data analytics framework serving 15 clinics.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2020 — 2022</div>
+      <div class="timeline-role">Technology Program Officer</div>
+      <div class="timeline-org">Health NGO — West Africa Region</div>
+      <div class="timeline-desc">Coordinated tech-for-health programmes across Nigeria, Ghana, and Senegal. Managed vendor relationships, built internal capacity for digital tools adoption, and authored policy briefs on digital health standards.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2018 — 2020</div>
+      <div class="timeline-role">Software Engineer / Data Analyst</div>
+      <div class="timeline-org">Fintech Startup — Lagos, Nigeria</div>
+      <div class="timeline-desc">Built backend systems and data pipelines for a financial inclusion platform. Gained deep technical experience in scalable system design, API integration, and mobile money infrastructure.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2014 — 2018</div>
+      <div class="timeline-role">BSc. Computer Science</div>
+      <div class="timeline-org">University of Ibadan — Ibadan, Nigeria</div>
+      <div class="timeline-desc">Graduated with First Class Honours. Final year project: "A Machine Learning Approach to Malaria Detection in Rural Nigerian Communities." President of the Computer Science Students' Association.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL -->
+<section class="personal" id="personal">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Personal<br><em style="font-style:italic;color:var(--gold)">Life & Passions</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="personal-grid">
+    <div class="personal-card">
+      <div class="personal-card-bg">📚</div>
+      <div class="personal-card-content">
+        <div class="personal-card-title">Avid Reader</div>
+        <div class="personal-card-text">Philosophy, African literature, biographies of builders. Currently reading: Chinua Achebe's collected essays and a biography of Elon Musk.</div>
+      </div>
+    </div>
+    <div class="personal-card">
+      <div class="personal-card-bg">🏃</div>
+      <div class="personal-card-content">
+        <div class="personal-card-title">Fitness & Movement</div>
+        <div class="personal-card-text">Early morning runs, calisthenics, and functional fitness. Movement is meditation. Goal: complete my first half-marathon by year's end.</div>
+      </div>
+    </div>
+    <div class="personal-card">
+      <div class="personal-card-bg">🎵</div>
+      <div class="personal-card-content">
+        <div class="personal-card-title">Music & Culture</div>
+        <div class="personal-card-text">Afrobeats, Jùjú, Jazz, and Gospel. Music is how Yorùbá people think out loud. I listen to understand eras, not just songs.</div>
+      </div>
+    </div>
+    <div class="personal-card">
+      <div class="personal-card-bg">🙏</div>
+      <div class="personal-card-content">
+        <div class="personal-card-title">Faith & Spirituality</div>
+        <div class="personal-card-text">Deeply rooted in faith. Prayer, gratitude, and service are daily practices that ground and direct everything I do professionally and personally.</div>
+      </div>
+    </div>
+    <div class="personal-card">
+      <div class="personal-card-bg">✍️</div>
+      <div class="personal-card-content">
+        <div class="personal-card-title">Writing & Thought Leadership</div>
+        <div class="personal-card-text">Essays on tech policy, health equity, and the African professional experience. Writing is how I process the world and give back to it.</div>
+      </div>
+    </div>
+    <div class="personal-card">
+      <div class="personal-card-bg">🌿</div>
+      <div class="personal-card-content">
+        <div class="personal-card-title">Nature & Mindfulness</div>
+        <div class="personal-card-text">Ibadan's hills, the Osun river basin, the red earth of the southwest. Spending time in nature restores the clarity no screen can offer.</div>
+      </div>
+    </div>
+    <div class="personal-card">
+      <div class="personal-card-bg">🍛</div>
+      <div class="personal-card-content">
+        <div class="personal-card-title">Food & Nutrition</div>
+        <div class="personal-card-text">Passionate about Nigerian cuisine as medicine. Ewedu, eba, and bitterleaf soup are not just cultural heritage — they are functional nutrition.</div>
+      </div>
+    </div>
+    <div class="personal-card">
+      <div class="personal-card-bg">👨‍👩‍👧</div>
+      <div class="personal-card-content">
+        <div class="personal-card-title">Family & Community</div>
+        <div class="personal-card-text">Family is my anchor, community is my fuel. I invest in relationships as deliberately as I invest in ideas. People are the ultimate infrastructure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMAIN SUGGESTIONS -->
+<section class="domain" id="domain">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Domain Name<br><em style="font-style:italic;color:var(--gold)">Recommendations</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <p style="color:var(--muted);font-size:12px;margin-bottom:2.5rem;max-width:600px;line-height:1.9;">Your domain is your first impression online. Here are my top recommendations — balancing memorability, professionalism, and personal brand clarity:</p>
+  <div class="domain-grid">
+    <div class="domain-card recommended">
+      <div class="domain-ext">.com · Premium Pick</div>
+      <div class="domain-name">timilehin.com</div>
+      <div class="domain-why">Clean, memorable, and powerfully personal. Your first name alone is distinctive enough — few people are named Timilehin, making this instantly recognisable and globally unique. This is your flagship identity.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-ext">.com · Professional Brand</div>
+      <div class="domain-name">seyiogunsakin.com</div>
+      <div class="domain-why">Uses your middle and surname combination. Professional and easy to say aloud in any English-speaking context. Excellent for business cards, LinkedIn, and professional correspondence.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-ext">.io · Tech Identity</div>
+      <div class="domain-name">ogunsakin.io</div>
+      <div class="domain-why">The .io extension signals technical credibility in the global tech community. Short, sharp, and strong. Perfect if your primary audience is tech builders, developers, or investors.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-ext">.africa · Cultural Statement</div>
+      <div class="domain-name">timilehin.africa</div>
+      <div class="domain-why">A bold declaration of your identity and mission. Makes a powerful statement about your pan-African vision. Increasingly respected in international tech and development circles.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-ext">.ng · Local Authority</div>
+      <div class="domain-name">timilehin.com.ng</div>
+      <div class="domain-why">Establishes your Nigerian roots and authority within the local ecosystem. Excellent for audiences within Nigeria and West Africa. Pairs well with a .com as a secondary local domain.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-ext">.co · Modern Alternative</div>
+      <div class="domain-name">seyiogunsakin.co</div>
+      <div class="domain-why">Clean modern alternative to .com with strong startup credibility. Highly readable, internationally recognised, and very few characters. Works well if .com is unavailable.</div>
+    </div>
+  </div>
+  <p style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-top:2rem;">💡 Top Strategy: Register <strong style="color:var(--gold)">timilehin.com</strong> as your primary domain and point all others to it as redirects.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-glow"></div>
+  <p class="contact-sub">Let's build something remarkable</p>
+  <h2 class="contact-heading">Ready to<br><em>Connect?</em></h2>
+  <p class="contact-desc">Whether you're a founder, a clinician, a fellow builder, or someone who just resonates with this work — my door is open. Let's talk, collaborate, or simply share ideas.</p>
+  <div class="contact-links">
+    <a href="mailto:hello@timilehin.com" class="contact-link">📧 Email Me</a>
+    <a href="https://linkedin.com" class="contact-link">💼 LinkedIn</a>
+    <a href="https://twitter.com" class="contact-link">🐦 X / Twitter</a>
+    <a href="#" class="contact-link">📄 Download CV</a>
+  </div>
+  <br><br>
+  <div style="display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;">
+    <div style="text-align:center">
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem">Location</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white)">Ibadan, Oyo State · Nigeria</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem">Availability</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--teal)">Open to Projects & Collaboration</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem">Response Time</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white)">Within 24 Hours</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">T<span>.</span>Seyi Ogunsakin</div>
+  <span>© 2025 Timilehin Seyi Adeleke Ogunsakin — All Rights Reserved</span>
+  <span>Designed with purpose · Built with care · Made in Nigeria 🇳🇬</span>
+</footer>
+
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+  document.querySelectorAll('a, button, .tech-card, .innovation-item, .value-item, .pillar, .principle, .personal-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '20px'; cursor.style.height = '20px';
+      ring.style.width = '60px'; ring.style.height = '60px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '12px'; cursor.style.height = '12px';
+      ring.style.width = '40px'; ring.style.height = '40px';
+    });
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // SKILL BARS ANIMATION
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.width = bar.getAttribute('data-width');
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const skillsSection = document.getElementById('skillsSection');
+  if (skillsSection) observer.observe(skillsSection);
+</script>
+</body>
+</html>
