@@ -21,7 +21,7 @@ function HeroSection() {
         </h1>
 
         <p
-          className="typewriter mt-5 max-w-2xl text-sm uppercase tracking-[0.32em] text-goldLight sm:text-[0.95rem]"
+          className="typewriter mt-5 w-full max-w-full text-[11px] uppercase tracking-[0.14em] leading-6 text-goldLight sm:max-w-2xl sm:text-[0.95rem] sm:tracking-[0.32em]"
           style={{ '--typing-duration': '1.45s', '--typing-steps': 45, '--typing-delay': '0.55s' }}
         >
           Tech Innovator · Health Advocate · Career Builder

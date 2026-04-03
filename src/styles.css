@@ -85,7 +85,9 @@
 
   .typewriter,
   .typewriter-loop {
+    display: block;
     width: 0;
+    max-width: 100%;
     overflow: hidden;
     white-space: nowrap;
     border-right: 1px solid rgba(232, 201, 122, 0.6);
@@ -100,6 +102,24 @@
     animation: typingLoop var(--typing-duration, 3.2s) steps(var(--typing-steps, 40))
         var(--typing-delay, 0s) infinite alternate,
       caret 0.9s step-end infinite;
+  }
+
+  @media (max-width: 640px) {
+    .typewriter {
+      width: 100%;
+      white-space: normal;
+      overflow: visible;
+      border-right: 0;
+      animation: none;
+    }
+
+    .typewriter-loop {
+      max-width: 100%;
+      width: 100%;
+      white-space: normal;
+      border-right: 0;
+      animation: none;
+    }
   }
 }
 

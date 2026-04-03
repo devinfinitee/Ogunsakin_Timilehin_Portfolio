@@ -46,7 +46,7 @@ function HeroParticles() {
   }, []);
 
   const options = useMemo(() => {
-    const particleCount = reducedMotion ? (isMobile ? 10 : 20) : isMobile ? 30 : 68;
+    const particleCount = reducedMotion ? (isMobile ? 12 : 20) : isMobile ? 44 : 68;
 
     return {
       fullScreen: { enable: false },
@@ -66,21 +66,21 @@ function HeroParticles() {
           value: ['rgba(47,191,179,0.65)', 'rgba(240,237,232,0.5)']
         },
         opacity: {
-          value: { min: 0.24, max: 0.65 }
+          value: isMobile ? { min: 0.34, max: 0.82 } : { min: 0.24, max: 0.65 }
         },
         size: {
-          value: { min: 1.1, max: 2.8 }
+          value: isMobile ? { min: 1.5, max: 3.4 } : { min: 1.1, max: 2.8 }
         },
         links: {
           enable: !reducedMotion,
-          distance: isMobile ? 78 : 130,
+          distance: isMobile ? 96 : 130,
           color: 'rgba(47,191,179,0.35)',
-          opacity: isMobile ? 0.06 : 0.14,
+          opacity: isMobile ? 0.16 : 0.14,
           width: 0.8
         },
         move: {
           enable: !reducedMotion,
-          speed: isMobile ? 1.2 : 0.9,
+          speed: isMobile ? 1.7 : 0.9,
           direction: 'none',
           random: true,
           straight: false,
@@ -105,9 +105,9 @@ function HeroParticles() {
         },
         modes: {
           grab: {
-            distance: isMobile ? 60 : 120,
+            distance: isMobile ? 90 : 120,
             links: {
-              opacity: 0.12
+              opacity: isMobile ? 0.22 : 0.12
             }
           }
         }
