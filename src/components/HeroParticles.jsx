@@ -46,7 +46,7 @@ function HeroParticles() {
   }, []);
 
   const options = useMemo(() => {
-    const particleCount = reducedMotion ? (isMobile ? 10 : 20) : isMobile ? 14 : 68;
+    const particleCount = reducedMotion ? (isMobile ? 10 : 20) : isMobile ? 30 : 68;
 
     return {
       fullScreen: { enable: false },
@@ -80,7 +80,7 @@ function HeroParticles() {
         },
         move: {
           enable: !reducedMotion,
-          speed: isMobile ? 0.38 : 0.9,
+          speed: isMobile ? 1.2 : 0.9,
           direction: 'none',
           random: true,
           straight: false,

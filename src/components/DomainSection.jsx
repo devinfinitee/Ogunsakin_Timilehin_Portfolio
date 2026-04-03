@@ -1,6 +1,6 @@
 function DomainSection() {
   return (
-    <section className="domain" id="domain">
+    <section className="domain !px-4 !py-20 sm:!px-6 lg:!px-16" id="domain">
       <div className="section-header">
         <span className="section-num">07</span>
         <h2 className="section-title">

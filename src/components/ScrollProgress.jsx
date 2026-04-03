@@ -1,5 +1,5 @@
 function ScrollProgress() {
-  return <div className="scroll-progress" id="scrollProgress"></div>;
+  return <div className="scroll-progress-fill" id="scrollProgress" />;
 }
 
 export default ScrollProgress;

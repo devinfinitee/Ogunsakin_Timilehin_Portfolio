@@ -20,22 +20,22 @@ function App() {
   return (
     <>
       <HeroParticles />
-      <div className="site-content">
-      <Cursor />
-      <ScrollProgress />
-      <NavBar />
-      <HeroSection />
-      <TickerBar />
-      <AboutSection />
-      <TechSection />
-      <HealthSection />
-      <InnovationsSection />
-      <CareerSection />
-      <PersonalSection />
-      {/* <DomainSection /> */}
-      <ContactSection />
-      <SiteFooter />
-      </div>
+      <main className="relative z-20 w-full overflow-x-hidden">
+        <Cursor />
+        <ScrollProgress />
+        <NavBar />
+        <HeroSection />
+        <TickerBar />
+        <AboutSection />
+        <TechSection />
+        <HealthSection />
+        <InnovationsSection />
+        <CareerSection />
+        <PersonalSection />
+        {/* <DomainSection /> */}
+        <ContactSection />
+        <SiteFooter />
+      </main>
     </>
   );
 }
