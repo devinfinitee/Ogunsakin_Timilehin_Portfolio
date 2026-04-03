@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --black: #0a0a0a;
   --off-black: #111111;
@@ -41,24 +45,17 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   cursor: none;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 0.45rem 0.65rem;
 }
+
+#root {
+  position: relative;
+}
+
 .site-content {
   position: relative;
-  .nav-links li {
-    min-width: 0;
-  }
-
   z-index: 2;
 }
 
-    display: block;
-    text-align: center;
-    white-space: nowrap;
-    padding: 0.2rem 0;
 .site-particles-layer {
   position: fixed;
   inset: 0;
@@ -90,16 +87,25 @@ body::after {
   position: fixed;
   width: 12px;
   height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: difference;
+}
+
 .cursor-ring {
   position: fixed;
   width: 40px;
   height: 40px;
-    width: calc(100% - 0.55rem);
+  border: 1px solid var(--gold);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-    gap: 0.35rem 0.45rem;
+  transition: all 0.18s ease;
   opacity: 0.5;
 }
 
@@ -2002,17 +2008,24 @@ button:hover svg {
   }
 
   .nav-links {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
-    gap: 0.75rem 1rem;
-    flex-wrap: wrap;
+    gap: 0.45rem 0.65rem;
     margin-left: 0;
-    justify-content: space-between;
+  }
+
+  .nav-links li {
+    min-width: 0;
   }
 
   .nav-links a {
     font-size: 8px;
     letter-spacing: 0.14em;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0.2rem 0;
   }
 
   section {
@@ -2096,6 +2109,46 @@ button:hover svg {
   .innovations-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+
+  .health-manifesto {
+    position: static;
+    top: auto;
+  }
+
+  .value-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+    padding: 1rem 0;
+  }
+
+  .value-sub {
+    margin-left: 0;
+    text-align: left;
+    max-width: none;
+  }
+
+  .innovation-item {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1.25rem;
+  }
+
+  .innovation-item:hover {
+    padding-left: 1.25rem;
+  }
+
+  .inno-status {
+    justify-self: start;
+  }
+
+  .timeline {
+    padding-left: 1.2rem;
+  }
+
+  .timeline-item {
+    padding: 0 0 2rem 1.4rem;
   }
 
   .tech-grid {
@@ -2193,7 +2246,12 @@ button:hover svg {
 
 @media (max-width: 520px) {
   .nav-links {
-    gap: 0.55rem 0.8rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem 0.55rem;
+  }
+
+  .nav-links a {
+    letter-spacing: 0.11em;
   }
 
   .hero-visual {
@@ -2252,7 +2310,8 @@ button:hover svg {
   }
 
   .nav-links {
-    gap: 0.45rem 0.65rem;
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 
   .nav-links a {
