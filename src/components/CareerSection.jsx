@@ -7,20 +7,23 @@ function CareerSection() {
       <div className="mb-10 flex items-end gap-4">
         <span className="text-[0.72rem] uppercase tracking-[0.3em] text-gold">05</span>
         <h2 className="font-display text-4xl leading-[0.92] text-stone-100 sm:text-5xl lg:text-[4.5rem]">
-          Career
+          Development
           <br />
-          <em className="not-italic text-teal">Journey & Milestones</em>
+          <em className="not-italic text-teal">Milestones</em>
         </h2>
         <span className="hidden h-px flex-1 bg-gradient-to-r from-gold/40 to-transparent lg:block" />
       </div>
 
+      <p className="mb-8 max-w-3xl text-base leading-8 text-stone-300 sm:text-lg">
+        My professional journey and growth across frontend foundations, backend expansion,
+        and production-ready full stack delivery.
+      </p>
+
       <div className="space-y-4">
         {[
-          ['2024 - Present', 'Lead Technology & Health Innovation Strategist', 'Independent / Consulting', 'Advising health organisations, startups, and government agencies on digital transformation strategy. Designing technology roadmaps, conducting feasibility studies, and building go-to-market strategies for health-tech products across West Africa.'],
-          ['2022 - 2024', 'Senior Product & Innovation Lead', 'Digital Health Initiative - Ibadan, Nigeria', 'Led cross-functional teams in building and deploying digital health products. Oversaw full product lifecycle from research to release. Reduced patient onboarding time by 60% through UX redesign. Implemented data analytics framework serving 15 clinics.'],
-          ['2020 - 2022', 'Technology Program Officer', 'Health NGO - West Africa Region', 'Coordinated tech-for-health programmes across Nigeria, Ghana, and Senegal. Managed vendor relationships, built internal capacity for digital tools adoption, and authored policy briefs on digital health standards.'],
-          ['2018 - 2020', 'Software Engineer / Data Analyst', 'Fintech Startup - Lagos, Nigeria', 'Built backend systems and data pipelines for a financial inclusion platform. Gained deep technical experience in scalable system design, API integration, and mobile money infrastructure.'],
-          ['2014 - 2018', 'BSc. Computer Science', 'University of Ibadan - Ibadan, Nigeria', 'Graduated with First Class Honours. Final year project: "A Machine Learning Approach to Malaria Detection in Rural Nigerian Communities." President of the Computer Science Students\' Association.']
+          ['2021', 'Frontend Development Foundation', 'Osun State, Nigeria', 'Mastered the core web technologies (HTML5, CSS3, JavaScript) and went ahead to learn several frameworks like Bootstrap, TailwindCSS, jQuery, React, Svelte, Vue. Developed several responsive interfaces focused on accessibility and clean design.'],
+          ['2022', 'Backend and Full Stack Transition', 'Osun State, Nigeria', 'Acquired proficiency in Node.js/Python and utilized Express and Node.js with other frameworks to design and implement robust, secure RESTful APIs and focused on database integration using MongoDB and data modelling.'],
+          ['2024 - Present', 'Capstone Projects and Portfolio Building', 'Ogbomosho, Oyo State', 'Building live production-ready web applications, leveraging a full MERN/MEVN stack and demonstrating the ability to architect and deploy scalable solutions from the initial concept to final deployment.']
         ].map(([date, role, org, desc]) => (
           <article
             key={role}

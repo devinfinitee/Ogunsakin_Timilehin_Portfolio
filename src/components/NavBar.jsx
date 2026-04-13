@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
 const NAV_LINKS = [
+  { label: 'Home', href: '#top' },
   { label: 'About', href: '#about' },
-  { label: 'Technology', href: '#tech' },
-  { label: 'Health', href: '#health' },
-  { label: 'Innovations', href: '#innovations' },
-  { label: 'Career', href: '#career' },
+  { label: 'Tech Stack', href: '#tech' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Experience', href: '#career' },
   { label: 'Contact', href: '#contact' }
 ];
 
@@ -53,7 +53,7 @@ function NavBar() {
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
         <a href="#top" className="font-display text-lg font-semibold tracking-[0.14em] text-stone-100">
-          T<span className="text-gold">.</span>Ogunsakin
+          O<span className="text-gold">.</span>Victor
         </a>
 
         <button

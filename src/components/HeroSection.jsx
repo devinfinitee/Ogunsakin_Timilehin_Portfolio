@@ -11,41 +11,58 @@ function HeroSection() {
       <div className="relative z-10 mx-auto w-full max-w-4xl lg:mx-0">
         <div className="mb-6 inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.32em] text-gold animate-[fadeUp_0.8s_ease_0.2s_forwards]">
           <span className="h-px w-8 bg-gold" />
-          Nigerian Technologist & Innovator
+          Building Production-Ready Web Products
         </div>
 
         <h1 className="font-display text-5xl font-semibold uppercase leading-[0.88] tracking-[-0.04em] text-stone-100 sm:text-6xl lg:text-[7.5rem]">
-          Timilehin
-          <span className="block pl-4 text-gold sm:pl-10">Seyi</span>
-          <span className="block font-bold">Ogunsakin</span>
+          Ogunlade
+          <span className="block pl-4 text-gold sm:pl-10">Victor</span>
+          <span className="block font-bold">Full Stack Developer</span>
         </h1>
 
         <p
           className="typewriter mt-5 w-full max-w-full text-[11px] uppercase tracking-[0.14em] leading-6 text-goldLight sm:max-w-2xl sm:text-[0.95rem] sm:tracking-[0.32em]"
           style={{ '--typing-duration': '1.45s', '--typing-steps': 45, '--typing-delay': '0.55s' }}
         >
-          Tech Innovator · Health Advocate · Career Builder
+          Front-End · Back-End · Design · DevOps
         </p>
 
         <p className="mt-7 max-w-2xl text-base leading-8 text-stone-300 sm:text-lg">
-          An African mind shaping global futures - at the intersection of technology, health
-          systems, and human potential. Building solutions that matter, stories that
-          resonate, and a legacy that endures.
+          Full stack developer building scalable web applications, currently developing
+          SmashUTME, an exam prep platform for Nigerian students.
         </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {['React', 'Svelte', 'TypeScript', 'AWS', 'Express', 'Vue', 'MongoDB', 'Docker', 'GitHub'].map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.6rem] uppercase tracking-[0.18em] text-stone-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
 
         <div className="mt-10 flex flex-wrap gap-4">
           <a
-            href="#innovations"
+            href="#projects"
             className="btn-primary inline-flex min-h-12 items-center justify-center rounded-full border border-transparent bg-gradient-to-br from-gold to-[#b9942f] px-6 py-3 text-[11px] uppercase tracking-[0.24em] text-ink transition duration-200 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(201,168,76,0.24)]"
           >
-            Explore My Work
+            Download Resume
           </a>
           <a
             href="#contact"
             className="btn-ghost inline-flex min-h-12 items-center justify-center rounded-full border border-gold/30 bg-white/5 px-6 py-3 text-[11px] uppercase tracking-[0.24em] text-stone-100 transition duration-200 hover:-translate-y-1 hover:border-gold/50 hover:bg-white/[0.08]"
           >
-            Let's Connect
+            Get In Touch
           </a>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3 text-[0.62rem] uppercase tracking-[0.18em] text-stone-400">
+          <a href="https://github.com/devinfinitee" target="_blank" rel="noreferrer" className="hover:text-goldLight">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-goldLight">LinkedIn</a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-goldLight">Twitter</a>
+          <a href="mailto:hello@devinfinitee.com" className="hover:text-goldLight">Email</a>
         </div>
       </div>
 
@@ -55,14 +72,14 @@ function HeroSection() {
 
           <div className="absolute inset-[15%] flex flex-col items-center justify-center gap-5 rounded-[24%_76%_60%_40%_/_52%_42%_58%_48%] border border-white/10 bg-gradient-to-b from-[#1a1a1a] to-[#101010] shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
             <div className="font-display text-[clamp(4rem,10vw,7rem)] leading-none tracking-[0.12em] text-goldLight">
-              TSA
+              OV
             </div>
             <div className="text-center">
               <div className="text-lg uppercase tracking-[0.14em] text-stone-100 sm:text-xl">
-                Timilehin S. A. Ogunsakin
+                Ogunlade Victor
               </div>
               <div className="mt-2 text-[0.72rem] uppercase tracking-[0.25em] text-stone-500">
-                Innovator · Ibadan, Nigeria
+                Full Stack Developer · Nigeria
               </div>
             </div>
           </div>
@@ -73,9 +90,9 @@ function HeroSection() {
 
           <div className="absolute bottom-8 left-3 right-3 grid grid-cols-3 gap-3">
             {[
-              ['5+', 'Years'],
-              ['12+', 'Projects'],
-              ['3', 'Domains']
+              ['9', 'Projects'],
+              ['12+', 'Technologies'],
+              ['3', 'Milestones']
             ].map(([value, label]) => (
               <div
                 key={label}
